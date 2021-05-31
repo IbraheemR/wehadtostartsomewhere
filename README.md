@@ -3,7 +3,6 @@
 ## An AI visulisation project built to explore working in a team.
 
 Ibraheem Rodrigues  
-Bogdan Cuciureanu  
 Aryenne Oliveros  
-Cheuk-Ting Chan  
+Bogdan Cuciureanu  
 Hamzah Qureshi
