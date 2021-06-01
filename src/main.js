@@ -7,6 +7,6 @@ const app = new App({
 	props: {
 		model
 	}
-});
+})
 
 export default app;
