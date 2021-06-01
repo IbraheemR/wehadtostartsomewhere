@@ -1,5 +1,6 @@
 <script>
   export let model;
+
   let { activations } = model;
 </script>
 
