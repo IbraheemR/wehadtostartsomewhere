@@ -1,11 +1,14 @@
 <script>
-  export let model;
+  import model from "./model/model";
 
-  let { activations } = model;
+  let { outputs } = model;
 </script>
 
 <h1>Hello World!</h1>
-<p>{$activations}</p>
+<p>{$outputs.map((x) => x.toFixed(2))}</p>
+<p>
+  {$outputs.reduce((iMax, x, i, arr) => (x > arr[iMax] ? i : iMax), 0)}
+</p>
 
 <style>
   p {

@@ -17,7 +17,7 @@ let outputs = readable(randomArray(10), (set) => {
 // Dummy function to update the resto of the parameters, as if the model is being run.
 inputs.subscribe(() => {
   if (setHiddenActivation) setHiddenActivation(randomArray(128));
-  if (setOutput) randomArray(10);
+  if (setOutput) setOutput(randomArray(10));
 });
 
 export default { inputs, activations, outputs };
