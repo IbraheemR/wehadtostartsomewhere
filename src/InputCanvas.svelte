@@ -27,7 +27,7 @@
           average += pixelShades[i + j];
         }
         average = average / 100 / 255;
-        adjustedPixelShades.push(p.round(average, 2));
+        adjustedPixelShades.push(average);
       }
 
       model.inputs.set(adjustedPixelShades);

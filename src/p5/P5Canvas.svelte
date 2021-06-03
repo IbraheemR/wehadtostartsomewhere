@@ -6,6 +6,7 @@
   export let draw = () => {};
   export let mouseClicked = () => {};
   export let mouseReleased = () => {};
+  export let mouseWheel = (event) => {};
 
   let container;
 
@@ -15,6 +16,7 @@
       p.draw = () => draw(p);
       p.mouseClicked = () => mouseClicked(p);
       p.mouseReleased = () => mouseReleased(p);
+      p.mouseWheel = (event) => mouseWheel(p,event);
     };
 
     new p5(sketch, container);
