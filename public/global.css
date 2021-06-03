@@ -1,3 +1,6 @@
+canvas{
+	touch-action: none
+}
 html, body {
 	position: relative;
 	width: 100%;

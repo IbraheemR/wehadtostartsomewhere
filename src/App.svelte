@@ -55,6 +55,14 @@
     </MDBCol>
   </MDBRow>
 </MDBContainer>
+  import VisualisationCanvas from "./VisualisationCanvas.svelte"
+</script>
+
+<main>
+  <HelloWorldDummy />
+  <InputCanvas />
+  <VisualisationCanvas />
+</main>
 
 <style>
 </style>
