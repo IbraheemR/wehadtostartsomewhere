@@ -1,6 +1,7 @@
 <script>
   import NavbarApp from "./Navbar.svelte"
   import InputCanvas from "./InputCanvas.svelte";
+  import VisualisationCanvas from "./VisualisationCanvas.svelte"
   import HelloWorldDummy from "./HelloWorldDummy.svelte";
 
   import {MDBContainer, MDBRow, MDBCol} from "mdbsvelte";
@@ -40,29 +41,22 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
 </svelte:head>
 
-<MDBContainer class="w-100" style="border:1px solid #999;">
+<MDBContainer fluid class="w-100 p-3" style="border:1px solid #999;">
   <MDBRow class="my-3">
     <MDBCol>  
       <!--<NavbarApp />-->
     </MDBCol>
   </MDBRow>
-  <MDBRow class="row w-90 mx-auto my-5" style="border:1px solid #000;">
-    <MDBCol class="col" style="border:1px solid #cecece;">
+  <MDBRow fluid class="row w-90 mx-auto my-5 d-flex" style="border:1px solid #000;">
+    <MDBCol size="5" fluid class="col flex-fill" style="border:1px solid #cecece;">
       <InputCanvas />
-    </MDBCol>
-    <MDBCol class="col" style="border:1px solid #cecece;">
       <HelloWorldDummy {model} />
+    </MDBCol>
+    <MDBCol size="5" fluid class="col flex-fill" style="border:1px solid #cecece;">
+      <VisualisationCanvas />
     </MDBCol>
   </MDBRow>
 </MDBContainer>
-  import VisualisationCanvas from "./VisualisationCanvas.svelte"
-</script>
-
-<main>
-  <HelloWorldDummy />
-  <InputCanvas />
-  <VisualisationCanvas />
-</main>
 
 <style>
 </style>
