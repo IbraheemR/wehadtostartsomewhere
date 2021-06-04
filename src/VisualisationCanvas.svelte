@@ -1,17 +1,23 @@
 <script>
-
-
     import P5Canvas from "./p5/P5Canvas.svelte";
 
+    
     var alpha = 0 , beta = 0;
     var boxSize;
     var Zindex = -1000;
+
+    function mouseOnScreen(p){
+      if(p.mouseX > 0 && p.mouseX < p.width && p.mouseY > 0 && p.mouseY < p.height){
+        return true
+      }
+      return false
+    }
 
   </script>
   
 <P5Canvas
   setup={(p) => {
-    p.createCanvas(1000, 1000, p.WEBGL);
+    p.createCanvas(800, 800, p.WEBGL); // Resize canvas elements here @HAM
     p.angleMode(p.DEGREES)
     boxSize = p.width/55
     //p.rectMode(p.CENTER)
@@ -20,7 +26,7 @@
     p.background(100,100,100)
     p.translate(0,0,Zindex)
 
-    if(p.mouseIsPressed){
+    if(p.mouseIsPressed && mouseOnScreen(p)){
       let rotatorY = p.mouseX - p.pmouseX;  // Rotating of camera using the mouse
       let rotatorX = p.mouseY - p.pmouseY;
      
@@ -64,7 +70,7 @@
     }
   }}
   mouseWheel={(p,event) => {
-    if(p.mouseX > 0 && p.mouseX < p.width && p.mouseY > 0 && p.mouseY < p.height){ 
+    if(mouseOnScreen(p)){ 
       event.preventDefault()
       Zindex -= event.delta*2
     }

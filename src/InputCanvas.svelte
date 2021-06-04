@@ -8,7 +8,7 @@
 
 <P5Canvas
   setup={(p) => {
-    p.createCanvas(280, 280);
+    p.createCanvas(280, 280); // Resize canvas here @HAM
     p.background(0);
   }}
   draw={(p) => {
