@@ -89,6 +89,9 @@
 
 <style>
   body {
+    margin:0;
+    background-color: rgb(54, 57, 63);
+    color: #bfc2c7;
     overflow: hidden;
   }
 </style>
