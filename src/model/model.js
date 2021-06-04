@@ -2,7 +2,7 @@ import { readable, writable } from "svelte/store";
 
 let setInput, setOutput, setHiddenActivation;
 
-let inputs = writable(randomArray(28 * 28), (set) => {
+let inputs = writable( new Array(28*28).fill(0), (set) => {
   setInput = set;
 });
 

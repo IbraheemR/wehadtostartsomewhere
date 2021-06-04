@@ -3,41 +3,38 @@
   import model from "./model/model.js";
 
   let pixelShades = [];
-  let adjustedPixelShades = [];
+  let smallCanvas;
 </script>
 
 <P5Canvas
   setup={(p) => {
     p.createCanvas(280, 280); // Resize canvas here @HAM
+    smallCanvas = p.createGraphics(28,28);
+    p.pixelDensity(1);
+    smallCanvas.pixelDensity(1);
+    smallCanvas.background(0);
     p.background(0);
   }}
   draw={(p) => {
+
     if (p.mouseIsPressed) {
-      p.loadPixels();
-      for (let i = 0; i < p.pixels.length; i += 4) {
-        let pixCol = p.pixels[i + 1]; // Only sampling the green channel. Be warned about this if we change colors etc.
+      smallCanvas.loadPixels();
+      for (let i = 0; i < smallCanvas.pixels.length; i += 4) {
+        let pixCol = smallCanvas.pixels[i + 1]; // Only sampling the green channel. Be warned about this if we change colors etc.
         pixelShades.push(pixCol);
       }
-      p.updatePixels();
-
-      // Possible optimisation to this using createGraphics?
-      for (let i = 0; i < pixelShades.length; i += 100) {
-        let average = 0;
-        for (let j = 0; j < 100; j++) {
-          average += pixelShades[i + j];
-        }
-        average = average / 100 / 255;
-        adjustedPixelShades.push(average);
-      }
-
-      model.inputs.set(adjustedPixelShades);
-
-      adjustedPixelShades = [];
+      smallCanvas.updatePixels();
+      
+      model.inputs.set(pixelShades);
       pixelShades = [];
-
+      
       p.stroke(255);
-      p.strokeWeight(35);
+      p.strokeWeight(20);
       p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
+      smallCanvas.stroke(255);
+      smallCanvas.strokeWeight(20);
+      smallCanvas.line(p.mouseX,p.mouseY,p.pmouseX,p.pmouseY)
+      smallCanvas.image(p,0,0,28,28)
     }
   }}
 />

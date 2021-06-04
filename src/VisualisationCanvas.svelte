@@ -1,8 +1,14 @@
 <script>
     import P5Canvas from "./p5/P5Canvas.svelte";
+    import data from "./model/model.js"
+
+    var inputs;
+    data.inputs.subscribe(content => {
+      inputs = content
+    })
 
     
-    var alpha = 0 , beta = 0;
+    var alpha = -30 , beta = 45;
     var boxSize;
     var Zindex = -1000;
 
@@ -38,10 +44,10 @@
     p.rotateX(alpha);
     p.rotateY(beta);
 
-
     for(let i = 0; i < 28; i++){
       for(let j = 0; j < 28; j++){
         p.push();
+        p.fill(255 * inputs[j*28 + i])
         p.translate(-p.width/2,-p.height/2)
         p.translate(i*(boxSize*2),j*(boxSize*2),0)
         p.box(boxSize*1.5);
