@@ -13,7 +13,6 @@
     smallCanvas = p.createGraphics(28,28);
     p.pixelDensity(1);
     smallCanvas.pixelDensity(1);
-    smallCanvas.background(0);
     p.background(0);
   }}
   draw={(p) => {
@@ -30,11 +29,8 @@
       pixelShades = [];
       
       p.stroke(255);
-      p.strokeWeight(20);
+      p.strokeWeight(p.height/15);
       p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
-      smallCanvas.stroke(255);
-      smallCanvas.strokeWeight(20);
-      smallCanvas.line(p.mouseX,p.mouseY,p.pmouseX,p.pmouseY)
       smallCanvas.image(p,0,0,28,28)
     }
   }}
