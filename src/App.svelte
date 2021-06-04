@@ -6,8 +6,11 @@
 
   import {MDBContainer, MDBRow, MDBCol} from "mdbsvelte";
   import DeviceDetector from "svelte-device-detector";
+
   export let model;
   let scrollable = false;
+  let showControls = true;
+
   const wheel = (node, options) => {
 		let { scrollable } = options;
 		
@@ -26,6 +29,7 @@
 			}
 		};
   };
+  const hideElement = () => showControls = false;
 </script>
 
 <svelte:window use:wheel={{scrollable}} />
@@ -58,7 +62,17 @@
         <HelloWorldDummy {model} />
       </MDBCol>
       <MDBCol size="6" fluid class="col flex-fill text-center" style="border:1px solid #cecece;">
-        <VisualisationCanvas />
+        <VisualisationCanvas style="z-index: 2; position: absolute; top: 0px; left: 0px;"/>
+        {#if showControls}
+        <div class="view" style="z-index: 1; position: absolute; top: 25px; left: 50px;" on:click={ hideElement }>
+          <img class="img-fluid" src="images/transparentImage.png" alt="Controls">
+          <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <p class="text-white mb-0">Click and drag to interact with visualisation</p>
+            </div>
+          </div>
+        </div>
+        {/if}
       </MDBCol>
     </MDBRow>
   </MDBContainer>
@@ -75,7 +89,17 @@
     </MDBRow>
     <MDBRow fluid class="row w-90 mx-auto my-5 d-flex" style="border:1px solid #000;">
       <MDBCol size="5" fluid class="col flex-fill" style="border:1px solid #cecece;">
-        <VisualisationCanvas />
+        <VisualisationCanvas style="z-index: 2; position: absolute; top: 0px; left: 0px;"/>
+        {#if showControls}
+        <div class="view" style="z-index: 1; position: absolute; top: 25px; left: 50px;" on:click={ hideElement }>
+          <img class="img-fluid" src="images/transparentImage.png" alt="Controls">
+          <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <p class="text-white mb-0">Click and drag to interact with visualisation</p>
+            </div>
+          </div>
+        </div>
+        {/if}
         <HelloWorldDummy {model} />
       </MDBCol>
       <MDBCol size="5" fluid class="col flex-fill" style="border:1px solid #cecece;">
