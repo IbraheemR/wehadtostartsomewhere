@@ -1,9 +1,11 @@
 <script>
   import model from "./model/model";
 
-  let { outputs } = model;
+  let {outputs} = model;
 
-  const clearCanvas = () => pass;
+
+  export let clearCanvas 
+
 </script>
 
 <div class="row mx-5 px-4">

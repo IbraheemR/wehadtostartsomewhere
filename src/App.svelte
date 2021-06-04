@@ -6,32 +6,12 @@
   import {MDBContainer, MDBRow, MDBCol} from "mdbsvelte";
   import DeviceDetector from "svelte-device-detector";
 
-  export let model;
-  let scrollable = false;
+
   let showControls = true;
-
-  const wheel = (node, options) => {
-		let { scrollable } = options;
-		
-		const handler = e => {
-			if (!scrollable) e.preventDefault();
-		};
-		
-		node.addEventListener('wheel', handler, { passive: false });
-		
-		return {
-			update(options) {
-				scrollable = options.scrollable;
-			},
-			destroy() {
-				node.removeEventListener('wheel', handler, { passive: false });
-			}
-		};
-  };
   const hideElement = () => showControls = false;
-</script>
 
-<svelte:window use:wheel={{scrollable}} />
+  let clearCanvas;
+</script>
 
 <svelte:head>
 <!-- Font Awesome -->
@@ -52,8 +32,8 @@
     <MDBRow fluid class="row w-90 mx-auto my-5" style="border:1px solid #000;" id="contentBox">
       <MDBCol size="6" fluid class="col flex-fill text-center" style="border:1px solid #cecece;">
         <br>
-        <InputCanvas />
-        <HelloWorldDummy {model} />
+        <InputCanvas bind:clearCanvas />
+        <HelloWorldDummy {clearCanvas}/>
       </MDBCol>
       <MDBCol size="6" fluid class="col flex-fill text-center" style="border:1px solid #cecece;">
         <VisualisationCanvas style="z-index: 2; position: absolute; top: 0px; left: 0px;"/>
@@ -89,10 +69,10 @@
           </div>
         </div>
         {/if}
-        <HelloWorldDummy {model} />
+        <HelloWorldDummy {clearCanvas}/>
       </MDBCol>
       <MDBCol size="5" fluid class="col flex-fill" style="border:1px solid #cecece;">
-        <InputCanvas />
+        <InputCanvas bind:clearCanvas/>
       </MDBCol>
     </MDBRow>
   </MDBContainer>

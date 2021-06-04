@@ -1,6 +1,17 @@
 <script>
   import P5Canvas from "./p5/P5Canvas.svelte";
   import model from "./model/model.js";
+  import clearer from "./HelloWorldDummy.svelte"
+
+
+  let pRef;
+
+  export const clearCanvas = () => {
+    if(pRef){
+      pRef.background(0)
+      model.inputs.set( new Array(784).fill(0))
+    }
+  }
 
   let pixelShades = [];
   let smallCanvas;
@@ -14,9 +25,9 @@
     p.pixelDensity(1);
     smallCanvas.pixelDensity(1);
     p.background(0);
+    pRef = p;
   }}
   draw={(p) => {
-
     if (p.mouseIsPressed) {
       smallCanvas.loadPixels();
       for (let i = 0; i < smallCanvas.pixels.length; i += 4) {

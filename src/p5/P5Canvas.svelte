@@ -11,7 +11,6 @@
   let container;
 
   onMount(() => {
-    console.log(container);
 
     const sketch = (p) => {
       p.setup = () => setup(p);
