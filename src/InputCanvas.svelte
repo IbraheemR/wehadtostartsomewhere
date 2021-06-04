@@ -30,9 +30,6 @@
       p.stroke(255);
       p.strokeWeight(p.height/15);
       p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
-      smallCanvas.stroke(255);
-      smallCanvas.strokeWeight(p.height/15);
-      smallCanvas.line(p.mouseX,p.mouseY,p.pmouseX,p.pmouseY)
       smallCanvas.image(p,0,0,28,28)
     }
   }}
