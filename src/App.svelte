@@ -52,10 +52,10 @@
   <MDBContainer fluid class="w-100 p-3" style="border:1px solid #999;">
     <MDBRow class="my-3">
       <MDBCol>  
-        <!--<NavbarApp />-->
+        <NavbarApp />
       </MDBCol>
     </MDBRow>
-    <MDBRow fluid class="row w-90 mx-auto my-5" style="border:1px solid #000;">
+    <MDBRow fluid class="row w-90 mx-auto my-5" style="border:1px solid #000;" id="contentBox">
       <MDBCol size="6" fluid class="col flex-fill text-center" style="border:1px solid #cecece;">
         <br>
         <InputCanvas />
@@ -84,10 +84,10 @@
   <MDBContainer fluid class="w-100 p-3" style="border:1px solid #999;">
     <MDBRow class="my-3">
       <MDBCol>  
-        <!--<NavbarApp />-->
+        <NavbarApp />
       </MDBCol>
     </MDBRow>
-    <MDBRow fluid class="row w-90 mx-auto my-5 d-flex" style="border:1px solid #000;">
+    <MDBRow fluid class="row w-90 mx-auto my-5 d-flex" style="border:1px solid #000;"  id="contentBox">
       <MDBCol size="5" fluid class="col flex-fill" style="border:1px solid #cecece;">
         <VisualisationCanvas style="z-index: 2; position: absolute; top: 0px; left: 0px;"/>
         {#if showControls}
