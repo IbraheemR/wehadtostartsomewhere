@@ -4,11 +4,12 @@
 
   let pixelShades = [];
   let smallCanvas;
+  let scaleFactor = 2.5;
 </script>
 
 <P5Canvas
   setup={(p) => {
-    p.createCanvas(280, 280); // Resize canvas here @HAM
+    p.createCanvas(280*scaleFactor, 280*scaleFactor); // Resize canvas here @HAM
     smallCanvas = p.createGraphics(28,28);
     p.pixelDensity(1);
     smallCanvas.pixelDensity(1);

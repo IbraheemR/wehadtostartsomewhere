@@ -41,22 +41,54 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
 </svelte:head>
 
-<MDBContainer fluid class="w-100 p-3" style="border:1px solid #999;">
-  <MDBRow class="my-3">
-    <MDBCol>  
-      <!--<NavbarApp />-->
-    </MDBCol>
-  </MDBRow>
-  <MDBRow fluid class="row w-90 mx-auto my-5 d-flex" style="border:1px solid #000;">
-    <MDBCol size="5" fluid class="col flex-fill" style="border:1px solid #cecece;">
-      <InputCanvas />
-      <HelloWorldDummy {model} />
-    </MDBCol>
-    <MDBCol size="5" fluid class="col flex-fill" style="border:1px solid #cecece;">
-      <VisualisationCanvas />
-    </MDBCol>
-  </MDBRow>
-</MDBContainer>
+<body>
+
+<DeviceDetector showInDevice="desktop">
+
+  <MDBContainer fluid class="w-100 p-3" style="border:1px solid #999;">
+    <MDBRow class="my-3">
+      <MDBCol>  
+        <!--<NavbarApp />-->
+      </MDBCol>
+    </MDBRow>
+    <MDBRow fluid class="row w-90 mx-auto my-5" style="border:1px solid #000;">
+      <MDBCol size="6" fluid class="col flex-fill text-center" style="border:1px solid #cecece;">
+        <br>
+        <InputCanvas />
+        <HelloWorldDummy {model} />
+      </MDBCol>
+      <MDBCol size="6" fluid class="col flex-fill text-center" style="border:1px solid #cecece;">
+        <VisualisationCanvas />
+      </MDBCol>
+    </MDBRow>
+  </MDBContainer>
+
+</DeviceDetector>
+
+<DeviceDetector showInDevice="mobile">
+
+  <MDBContainer fluid class="w-100 p-3" style="border:1px solid #999;">
+    <MDBRow class="my-3">
+      <MDBCol>  
+        <!--<NavbarApp />-->
+      </MDBCol>
+    </MDBRow>
+    <MDBRow fluid class="row w-90 mx-auto my-5 d-flex" style="border:1px solid #000;">
+      <MDBCol size="5" fluid class="col flex-fill" style="border:1px solid #cecece;">
+        <VisualisationCanvas />
+        <HelloWorldDummy {model} />
+      </MDBCol>
+      <MDBCol size="5" fluid class="col flex-fill" style="border:1px solid #cecece;">
+        <InputCanvas />
+      </MDBCol>
+    </MDBRow>
+  </MDBContainer>
+
+</DeviceDetector>
+</body>
 
 <style>
+  body {
+    overflow: hidden;
+  }
 </style>

@@ -23,7 +23,7 @@
   
 <P5Canvas
   setup={(p) => {
-    p.createCanvas(800, 800, p.WEBGL); // Resize canvas elements here @HAM
+    p.createCanvas(850, 850, p.WEBGL); // Resize canvas elements here @HAM
     p.angleMode(p.DEGREES)
     boxSize = p.width/55
     //p.rectMode(p.CENTER)
