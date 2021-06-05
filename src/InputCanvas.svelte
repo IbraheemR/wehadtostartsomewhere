@@ -26,13 +26,16 @@
     smallCanvas.pixelDensity(1);
     p.background(0);
     pRef = p;
+
+    p.frameRate(100)
+    smallCanvas.frameRate(100)
   }}
   draw={(p) => {
     if (p.mouseIsPressed) {
       smallCanvas.loadPixels();
       for (let i = 0; i < smallCanvas.pixels.length; i += 4) {
         let pixCol = smallCanvas.pixels[i + 1]; // Only sampling the green channel. Be warned about this if we change colors etc.
-        pixelShades.push(pixCol);
+        pixelShades.push(pixCol/255);
       }
       smallCanvas.updatePixels();
       
