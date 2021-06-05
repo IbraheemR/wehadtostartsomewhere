@@ -1,7 +1,7 @@
 <script>
     import P5Canvas from "./p5/P5Canvas.svelte";
     import data from "./model/model.js"
-import { xlink_attr } from "svelte/internal";
+
 
     var inputs;
     data.inputs.subscribe(content => {
@@ -32,6 +32,7 @@ import { xlink_attr } from "svelte/internal";
   setup={(p) => {
     p.createCanvas(850, 850, p.WEBGL); // Resize canvas elements here @HAM
     p.angleMode(p.DEGREES)
+    p.pixelDensity(1)
     boxSize = p.width/55
     //p.rectMode(p.CENTER)
   }}
