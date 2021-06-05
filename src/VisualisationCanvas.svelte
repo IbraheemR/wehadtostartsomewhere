@@ -16,6 +16,8 @@ import { xlink_attr } from "svelte/internal";
     var middlePositionsGotten = false;
     var middlePositions = [];
 
+    const gridSpacing = 400
+
 
     function mouseOnScreen(p){
       if(p.mouseX > 0 && p.mouseX < p.width && p.mouseY > 0 && p.mouseY < p.height){
@@ -66,13 +68,13 @@ import { xlink_attr } from "svelte/internal";
           p.stroke(p.random(0,255), p.random(0,255), p.random(0,255))
           p.strokeWeight(7)
           let position = p.random(middlePositions).copy()
-          position.add(0,0,-250)
+          position.add(0,0,-gridSpacing)
           p.line((-p.width/2)+(i*(boxSize*2)),(-p.height/2)+(j*(boxSize*2)),0,-position.x,-position.y,-position.z)
           p.pop()
         }
       }
     }
-    p.translate(0,0,250)
+    p.translate(0,0,gridSpacing)
     for(let i = 0; i < 8; i++){
       for(let j = 0; j < 16; j++){
         p.push();
