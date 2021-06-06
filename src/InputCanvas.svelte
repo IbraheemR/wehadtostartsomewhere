@@ -30,7 +30,7 @@
     smallCanvas = p.createGraphics(28,28);
     p.pixelDensity(1);
     smallCanvas.pixelDensity(1);
-    p.background(0);
+    p.background(0); // Background colour @HAM
     pRef = p;
 
     p.frameRate(100)
