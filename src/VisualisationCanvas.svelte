@@ -19,7 +19,7 @@
     
     var alpha = -30 , beta = 45;
     var boxSize;
-    var Zindex = -1000;
+    var Zindex = -500;
 
     var middlePositionsGotten = false;
     var middlePositions = [];
