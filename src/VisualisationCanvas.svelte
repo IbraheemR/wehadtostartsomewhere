@@ -48,7 +48,7 @@
     boxSize = p.width/55
   }}
   draw={(p) => {
-    p.background(100,100,100)
+    p.background(100,100,100) // Bakground colour declaration
     p.translate(0,0,Zindex)
 
     if(p.mouseIsPressed && mouseOnScreen(p)){
@@ -66,8 +66,8 @@
     for(let i = 0; i < 28; i++){
       for(let j = 0; j < 28; j++){
         p.push();
-        p.stroke(0)
-        let filler = 255 * (inputs[j*28 + i])
+        p.stroke(0) // Inputs grid, line colour
+        let filler = 255 * (inputs[j*28 + i]) // Inputs array, box colour
         p.fill(filler)
         p.translate(-p.width/2,-p.height/2)
         p.translate(i*(boxSize*2),j*(boxSize*2),0)
@@ -75,10 +75,10 @@
         p.pop()
 
 
-        if(filler == 255){
+        if(filler == 255){ 
           p.push()
-          p.stroke(255,255,0)
-          p.strokeWeight(3.5)
+          p.stroke(255,255,0) // Line between activations and inputs grid, line colour
+          p.strokeWeight(3.5) // Line between activations and inputs grid, line thickness
           let position = p.random(middlePositions).copy()
           position.add(0,0,-gridSpacing)
           p.line((-p.width/2)+(i*(boxSize*2)),(-p.height/2)+(j*(boxSize*2)),0,-position.x,-position.y,-position.z)
@@ -90,8 +90,8 @@
     for(let i = 0; i < 8; i++){
       for(let j = 0; j < 16; j++){
         p.push();
-        p.stroke(0)
-        p.fill(255,0,0,255 * activations[j*8 + i])
+        p.stroke(0) // Activations grid, line colour
+        p.fill(255,0,0,255 * activations[j*8 +i]) // Activations grid, box colour
         let position = p.createVector((-7.5*boxSize)+(i*(boxSize*2)),(-15.5*boxSize)+(j*(boxSize*2)),0)
         p.translate(position.x,position.y,position.z)
         p.box(boxSize*1.8);
@@ -107,7 +107,7 @@
       for(let j = 0; j < 2; j++){
         p.push();
         p.stroke(0)
-        p.fill(0,255,0,255 * outputs[j*5 + i])
+        p.fill(0,255,0,255 * outputs[j*5 + i]) // Outputs grid, box colour
         p.translate(-4.5*boxSize,-1.5*boxSize,0)
         p.translate(i*(boxSize*2),j*(boxSize*2),0)
         p.box(boxSize*1.8);
