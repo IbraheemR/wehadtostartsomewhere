@@ -15,6 +15,11 @@
       mostProbableDigit = Math.max(...content);
     })
 
+    var activations;
+    data.activations.subscribe(content => {
+      activations = content;
+    })
+
     
     
     var alpha = -30 , beta = 45;
@@ -40,9 +45,7 @@
   setup={(p) => {
     p.createCanvas(850, 850, p.WEBGL); // Resize canvas elements here @HAM
     p.angleMode(p.DEGREES)
-    //p.pixelDensity(1)
     boxSize = p.width/55
-    //p.rectMode(p.CENTER)
   }}
   draw={(p) => {
     p.background(100,100,100)
@@ -88,7 +91,7 @@
       for(let j = 0; j < 16; j++){
         p.push();
         p.stroke(0)
-        p.fill(255,0,0,p.random(255))
+        p.fill(255,0,0,255 * activations[j*8 + i])
         let position = p.createVector((-7.5*boxSize)+(i*(boxSize*2)),(-15.5*boxSize)+(j*(boxSize*2)),0)
         p.translate(position.x,position.y,position.z)
         p.box(boxSize*1.8);
