@@ -40,6 +40,7 @@
   <P5Canvas
     setup={(p) => {
       canvasSize = Math.min(container.clientWidth, container.clientHeight)
+      console.log(canvasSize)
       p.createCanvas(canvasSize, canvasSize); // Resize canvas here @HAM
       smallCanvas = p.createGraphics(28,28);
       p.pixelDensity(1);
