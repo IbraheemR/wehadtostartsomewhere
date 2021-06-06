@@ -11,7 +11,7 @@
     
     var alpha = -30 , beta = 45;
     var boxSize;
-    var Zindex = -1000;
+    var Zindex = -500;
 
     var middlePositionsGotten = false;
     var middlePositions = [];
@@ -54,7 +54,7 @@
     for(let i = 0; i < 28; i++){
       for(let j = 0; j < 28; j++){
         p.push();
-        p.stroke(0)
+        p.stroke(255,255,255,100)
         let filler = 255 * (inputs[j*28 + i])
         p.fill(filler)
         p.translate(-p.width/2,-p.height/2)
