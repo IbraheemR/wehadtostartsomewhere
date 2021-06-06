@@ -40,7 +40,7 @@
   setup={(p) => {
     p.createCanvas(850, 850, p.WEBGL); // Resize canvas elements here @HAM
     p.angleMode(p.DEGREES)
-    p.pixelDensity(1)
+    //p.pixelDensity(1)
     boxSize = p.width/55
     //p.rectMode(p.CENTER)
   }}
