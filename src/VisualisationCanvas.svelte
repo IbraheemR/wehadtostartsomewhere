@@ -40,7 +40,6 @@
   setup={(p) => {
     p.createCanvas(850, 850, p.WEBGL); // Resize canvas elements here @HAM
     p.angleMode(p.DEGREES)
-    p.pixelDensity(5)
     boxSize = p.width/55
     //p.rectMode(p.CENTER)
   }}
@@ -63,7 +62,7 @@
     for(let i = 0; i < 28; i++){
       for(let j = 0; j < 28; j++){
         p.push();
-        p.stroke(0)
+        p.stroke(255,255,255,100)
         let filler = 255 * (inputs[j*28 + i])
         p.fill(filler)
         p.translate(-p.width/2,-p.height/2)
