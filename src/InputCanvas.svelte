@@ -1,7 +1,6 @@
 <script>
   import P5Canvas from "./p5/P5Canvas.svelte";
   import model from "./model/model.js";
-  import clearer from "./HelloWorldDummy.svelte"
 
 
   let pRef;
@@ -12,6 +11,13 @@
       model.inputs.set( new Array(784).fill(0))
     }
   }
+
+  function mouseOnScreen(p){
+      if(p.mouseX > 0 && p.mouseX < p.width && p.mouseY > 0 && p.mouseY < p.height){
+        return true
+      }
+      return false
+    }
 
   let pixelShades = [];
   let smallCanvas;
@@ -31,7 +37,7 @@
     smallCanvas.frameRate(100)
   }}
   draw={(p) => {
-    if (p.mouseIsPressed) {
+    if (p.mouseIsPressed && mouseOnScreen(p)) {
       smallCanvas.loadPixels();
       for (let i = 0; i < smallCanvas.pixels.length; i += 4) {
         let pixCol = smallCanvas.pixels[i + 1]; // Only sampling the green channel. Be warned about this if we change colors etc.

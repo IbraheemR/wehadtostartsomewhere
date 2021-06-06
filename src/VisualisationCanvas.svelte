@@ -8,6 +8,14 @@
       inputs = content
     })
 
+    var outputs;
+    var mostProbableDigit;
+    data.outputs.subscribe(content => {
+      outputs = content;
+      mostProbableDigit = Math.max(...content);
+    })
+
+    
     
     var alpha = -30 , beta = 45;
     var boxSize;
@@ -66,8 +74,8 @@
 
         if(filler == 255){
           p.push()
-          p.stroke(p.random(0,255), p.random(0,255), p.random(0,255))
-          p.strokeWeight(7)
+          p.stroke(255,255,0)
+          p.strokeWeight(3.5)
           let position = p.random(middlePositions).copy()
           position.add(0,0,-gridSpacing)
           p.line((-p.width/2)+(i*(boxSize*2)),(-p.height/2)+(j*(boxSize*2)),0,-position.x,-position.y,-position.z)
@@ -80,7 +88,7 @@
       for(let j = 0; j < 16; j++){
         p.push();
         p.stroke(0)
-        p.fill(p.random(0,255), p.random(0,255), p.random(0,255))
+        p.fill(255,0,0,p.random(255))
         let position = p.createVector((-7.5*boxSize)+(i*(boxSize*2)),(-15.5*boxSize)+(j*(boxSize*2)),0)
         p.translate(position.x,position.y,position.z)
         p.box(boxSize*1.8);
@@ -91,11 +99,12 @@
         }
     }
   }
-    p.translate(0,0,250)
+    p.translate(0,0,100)
     for(let i = 0; i < 5; i++){
       for(let j = 0; j < 2; j++){
         p.push();
         p.stroke(0)
+        p.fill(0,255,0,255 * outputs[j*5 + i])
         p.translate(-4.5*boxSize,-1.5*boxSize,0)
         p.translate(i*(boxSize*2),j*(boxSize*2),0)
         p.box(boxSize*1.8);
