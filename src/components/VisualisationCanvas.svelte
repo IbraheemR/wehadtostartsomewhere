@@ -48,7 +48,6 @@
   <P5Canvas
     setup={(p) => {
       p.createCanvas(container.clientWidth, container.clientHeight, p.WEBGL);
-      console.log(container.clientWidth, container.clientHeight);
       p.angleMode(p.DEGREES);
       boxSize = p.width / 55;
     }}
@@ -137,7 +136,6 @@
     }}
     windowResized={(p) => {
       p.resizeCanvas(container.clientWidth, container.clientHeight);
-      console.log(container.clientWidth, container.clientHeight);
     }}
   />
 </div>
