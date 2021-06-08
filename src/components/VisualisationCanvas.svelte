@@ -77,7 +77,7 @@
           p.box(boxSize * 1.5);
           p.pop();
 
-          if (filler == 255) {
+          if (filler == 255 && p.random() < 0.05) {
             p.push();
             p.stroke(255, 255, 0); // Line between activations and inputs grid, line colour
             p.strokeWeight(3.5); // Line between activations and inputs grid, line thickness
