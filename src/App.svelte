@@ -28,19 +28,19 @@
 
 <DeviceDetector showInDevice="desktop">
 
-  <MDBContainer fluid class="w-100 p-3" style="border:1px solid #999;">
-    <MDBRow fluid class="row w-90 mx-auto my-5" style="border:1px solid #000;" id="contentBox">
-      <MDBCol size="6" fluid class="col flex-fill text-center" style="border:1px solid #cecece;">
+  <MDBContainer class="w-100 p-3" style="border:1px solid #900; min-width: 100%; height:80%; padding:0;">
+    <MDBRow fluid class="row w-90 mx-auto" style="border:1px solid #090;" id="contentBox">
+      <MDBCol size="6" fluid class="col flex-fill text-center" style="border:1px solid #009;">
         <br>
         <InputCanvas bind:clearCanvas />
         <HelloWorldDummy {clearCanvas}/>
       </MDBCol>
-      <MDBCol size="6" fluid class="col flex-fill text-center" style="border:1px solid #cecece;">
+      <MDBCol size="6" fluid class="col flex-fill text-center" style="border:1px solid #099;">
         <VisualisationCanvas style="z-index: 2; position: absolute; top: 0px; left: 0px;"/>
         {#if showControls}
         <div class="view" style="z-index: 1; position: absolute; top: 25px; left: 50px;" on:click={ hideElement }>
           <img class="img-fluid" src="images/transparentImage.png" alt="Controls">
-          <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+          <div class="mask" style="background-color: rgba(0, 0, 0, 0.2);">
             <div class="d-flex justify-content-center align-items-center h-100">
               <p class="text-white mb-0">Click and drag to interact with visualisation</p>
             </div>
@@ -62,7 +62,7 @@
         {#if showControls}
         <div class="view" style="z-index: 1; position: absolute; top: 25px; left: 50px;" on:click={ hideElement }>
           <img class="img-fluid" src="images/transparentImage.png" alt="Controls">
-          <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+          <div class="mask" style="background-color: rgba(0, 0, 0, 0.2);">
             <div class="d-flex justify-content-center align-items-center h-100">
               <p class="text-white mb-0">Click and drag to interact with visualisation</p>
             </div>
