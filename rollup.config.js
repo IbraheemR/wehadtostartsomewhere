@@ -7,7 +7,7 @@ import css from "rollup-plugin-css-only";
 
 const production = !process.env.ROLLUP_WATCH;
 
-let startWithDev = ["run", "start", "--", "--dev","--host"];
+let startWithDev = ["run", "start", "--", "--dev"];
 startWithDev.push(process.env.SIRVHOST === "true" ? "--host" : undefined);
 
 function serve() {

@@ -26,6 +26,7 @@
   let pixelShades = [];
   let smallCanvas;
   let container;
+
   let canvasSize;
 </script>
 
