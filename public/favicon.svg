@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100"
+   height="100"
+   viewBox="0 0 26.458333 26.458334"
+   version="1.1"
+   id="svg12"
+   inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
+   sodipodi:docname="favicon.svg"
+   inkscape:export-filename="/home/ibraheem/Desktop/ai-project/public/favicon.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     units="px"
+     inkscape:zoom="12.070313"
+     inkscape:cx="43.66084"
+     inkscape:cy="52.691261"
+     inkscape:window-width="1920"
+     inkscape:window-height="1052"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3103" />
+  </sodipodi:namedview>
+  <defs
+     id="defs9" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect440-7"
+       style="fill:none;stroke:#ffffff;stroke-width:1.85208;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 7.9375,17.197917 15.875,-3.96875 V 19.84375 L 7.9375,23.8125 Z"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       id="rect440-7-6"
+       style="fill:none;stroke:#ffffff;stroke-width:6.99999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 75 10 L 15 25 L 15 85 C 19.275189 83.574937 24.47411 82.070603 30 80.587891 L 30 65 L 75 53.75 L 75 10 z "
+       transform="scale(0.26458333)" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 7.9375003,11.641667 1.852083,5.291667"
+       id="path12278"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 10.847916,8.202084 13.758333,15.875"
+       id="path12278-3"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/ibraheem/Desktop/ai-project/public/favicon.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 15.610417,10.31875 17.4625,14.816667"
+       id="path12278-6"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>
