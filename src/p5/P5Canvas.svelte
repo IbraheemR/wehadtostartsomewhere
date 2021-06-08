@@ -6,17 +6,18 @@
   export let draw = () => {};
   export let mouseClicked = () => {};
   export let mouseReleased = () => {};
-
+  export let mouseWheel = (event) => {};
+  export let windowResized = () => {};
   let container;
 
   onMount(() => {
-    console.log(container);
-
     const sketch = (p) => {
       p.setup = () => setup(p);
       p.draw = () => draw(p);
       p.mouseClicked = () => mouseClicked(p);
       p.mouseReleased = () => mouseReleased(p);
+      p.mouseWheel = (event) => mouseWheel(p, event);
+      p.windowResized = () => windowResized(p);
     };
 
     new p5(sketch, container);
@@ -24,3 +25,10 @@
 </script>
 
 <div bind:this={container} />
+
+<style>
+  div {
+    padding: 0;
+    margin: 0;
+  }
+</style>
