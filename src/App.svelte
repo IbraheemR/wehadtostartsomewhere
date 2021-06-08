@@ -24,8 +24,6 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
 </svelte:head>
 
-<body>
-
 <DeviceDetector showInDevice="desktop">
 
   <MDBContainer class="w-100 p-3" style="border:1px solid #900; min-width: 100%; height:80%; padding:0;">
@@ -78,13 +76,6 @@
   </MDBContainer>
 
 </DeviceDetector>
-</body>
 
 <style>
-  body {
-    margin:0;
-    background-color: rgb(54, 57, 63);
-    color: #bfc2c7;
-    overflow: hidden;
-  }
 </style>
