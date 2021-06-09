@@ -1,8 +1,11 @@
 import { readable, writable } from "svelte/store";
+import { loadLayersModel } from "@tensorflow/tfjs";
+
+console.log(loadLayersModel);
 
 let setInput, setOutput, setHiddenActivation;
 
-let inputs = writable( new Array(28*28).fill(0), (set) => {
+let inputs = writable(new Array(28 * 28).fill(0), (set) => {
   setInput = set;
 });
 
