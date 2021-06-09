@@ -1,7 +1,5 @@
 import { readable, writable } from "svelte/store";
-import { loadLayersModel } from "@tensorflow/tfjs";
-
-console.log(loadLayersModel);
+import { loadLayersModel, tensor } from "@tensorflow/tfjs";
 
 let setInput, setOutput, setHiddenActivation;
 
@@ -17,11 +15,6 @@ let outputs = readable(randomArray(10), (set) => {
   setOutput = set;
 });
 
-// Dummy function to update the resto of the parameters, as if the model is being run.
-inputs.subscribe(() => {
-  if (setHiddenActivation) setHiddenActivation(randomArray(128));
-  if (setOutput) setOutput(randomArray(10));
-});
 
 export default { inputs, activations, outputs };
 
@@ -32,3 +25,15 @@ function randomArray(n) {
   }
   return o;
 }
+
+(async () => {
+  //let model = await loadLayersModel("/model/model.json")
+  let model = await loadLayersModel("/model/model.json")
+
+  inputs.subscribe(async data => {
+    let result = model.predict(tensor(data).reshape([1,28,28]))
+    setOutput(await result.data())   
+  })
+
+  })()
+
