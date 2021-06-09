@@ -41,8 +41,6 @@
       p.background(0); // Background colour @HAM
       pRef = p;
 
-      p.frameRate(100);
-      smallCanvas.frameRate(100);
     }}
     draw={(p) => {
       if (p.mouseIsPressed && mouseOnScreen(p)) {
