@@ -46,6 +46,7 @@
   .infoarea {
     grid-area: info;
     padding: 1rem;
+    padding-bottom: 0;
   }
 
   .inputarea {
