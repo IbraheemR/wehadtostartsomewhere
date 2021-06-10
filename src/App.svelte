@@ -2,6 +2,7 @@
   import InputCanvas from "./components/InputCanvas.svelte";
   import VisualisationCanvas from "./components/VisualisationCanvas.svelte";
   import TextInfo from "./components/TextInfo.svelte";
+  import Probabilities from "./components/Probabilities.svelte";
 
   let clearCanvas;
 </script>
@@ -13,6 +14,10 @@
 
   <div class="infoarea">
     <TextInfo {clearCanvas} />
+  </div>
+
+  <div class="probsarea">
+    <Probabilities />
   </div>
 
   <div class="inputarea">
@@ -28,15 +33,19 @@
     height: 100%;
 
     grid-template-areas: "vis" "info" "input";
-    grid-template-rows: 5fr auto 5fr;
+    grid-template-rows: 1fr auto 1fr;
     grid-template-columns: 1fr;
   }
 
   @media (orientation: landscape) {
     main {
-      grid-template-areas: "info vis" "input vis";
-      grid-template-rows: auto 1fr;
+      grid-template-areas: "info vis" "input vis" "probs vis";
+      grid-template-rows: auto 200px 1fr;
       grid-template-columns: 1fr 1fr;
+    }
+
+    .probsarea {
+      display: block !important;
     }
   }
   .visarea {
@@ -45,8 +54,13 @@
 
   .infoarea {
     grid-area: info;
+    padding: 0 1rem;
+  }
+
+  .probsarea {
+    display: none;
+    grid-area: probs;
     padding: 1rem;
-    padding-bottom: 0;
   }
 
   .inputarea {

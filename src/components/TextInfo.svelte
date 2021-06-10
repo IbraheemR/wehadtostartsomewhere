@@ -6,57 +6,50 @@
 
   export let clearCanvas;
 
-  let maxProb;
+  let prediction, confidence;
 
-  $: maxProb = $outputs.reduce(
-    (iMax, x, i, arr) => (x > arr[iMax] ? i : iMax),
-    0
+  $: [prediction, confidence] = $outputs.reduce(
+    (iMax, x, i, arr) => (x > iMax[1] ? [i, x] : iMax),
+    [0, 0]
   );
 </script>
 
 <h1>MNIST Explorer</h1>
+<h3 id="credit">
+  (Ibraheem Rodrigues <a>Et Al</a>.)
+</h3>
 
-<h3>Output Probabilities:</h3>
-
-<div id="probs">
-  {#each $outputs as output, i}
-    <div>
-      <strong>{i}</strong> : {output.toFixed(3)}
-
-      {#if i === 4}
-        <br />
+<div id="controls">
+  <div id="prediction">
+    Prediction:
+    <strong>
+      {#if confidence < 0.7}
+        Unsure
+      {:else}
+        {prediction}
       {/if}
-    </div>
-  {/each}
+    </strong>
+
+    <br />
+
+    Confidence: <strong>{(confidence * 100).toFixed(1)}%</strong>
+  </div>
+
+  <Button onclick={clearCanvas}>Clear</Button>
 </div>
 
-<h2 id="output">
-  <span>
-    Prediction: <strong>{maxProb}</strong>
-  </span>
-
-  <span id="credit">
-    (Ibraheem Rodrigues <a>Et Al</a>.)
-    <!-- TODO: link this to credits or something -->
-  </span>
-</h2>
-
-<Button onclick={clearCanvas}>Clear</Button>
-
 <style>
-  #probs {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    max-width: 30rem;
-    margin: 0 auto;
-  }
-
-  #output {
+  #controls {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
   }
+
+  #prediction {
+    display: inline;
+    font-size: 1.5rem;
+  }
+
   #credit {
-    font-size: 1rem;
+    text-align: right;
   }
 </style>
