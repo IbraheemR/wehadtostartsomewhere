@@ -2,4 +2,4 @@
   export let onclick;
 </script>
 
-<button on:click={onclick}>Clear</button>
+<button on:click={onclick} id="clear">Clear</button>

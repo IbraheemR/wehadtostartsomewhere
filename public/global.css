@@ -11,7 +11,8 @@ body {
 }
 
 body {
-  color: #333;
+  color: #ffffff;
+  background-color: rgb(25,24,30);
   margin: 0;
   padding: 0px;
   box-sizing: border-box;
@@ -72,6 +73,16 @@ button:focus {
   border-color: #666;
 }
 
-#contentBox {
-  background-color: rgb(34, 36, 39);
+#clear {
+  background-color: #2b44cb;
+  outline-color: #2b44cb;
+  color: #ffffff;
+  border: none;
+}
+
+#about {
+  background-color: rgb(25,24,30);
+  outline-color: #2b44cb;
+  color: #ffffff;
+  border: none;
 }
