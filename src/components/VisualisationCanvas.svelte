@@ -22,10 +22,13 @@
   var alpha = -30,
     beta = 45;
   var boxSize;
-  var Zindex = -500;
+  var Zindex;
 
   var middlePositionsGotten = false;
   var middlePositions = [];
+
+  var InputGridToMiddleSpacing;
+  var MiddlegridToOutputSpacing;
 
   const gridSpacing = 400;
 
@@ -49,10 +52,14 @@
     setup={(p) => {
       p.createCanvas(container.clientWidth, container.clientHeight, p.WEBGL);
       p.angleMode(p.DEGREES);
-      boxSize = p.width / 55;
+      boxSize = p.width/55;
+      Zindex = -boxSize*25;
+      InputGridToMiddleSpacing = boxSize*15;
+      MiddlegridToOutputSpacing = boxSize*7.5;
+
     }}
     draw={(p) => {
-      p.background(100, 100, 100); // Bakground colour declaration
+      p.background(100, 100, 100); // Background colour declaration
       p.translate(0, 0, Zindex);
 
       if (p.mouseIsPressed && mouseOnScreen(p)) {
@@ -72,7 +79,7 @@
           p.stroke(255, 255, 255, 100); // Inputs grid, line colour
           let filler = 255 * inputs[j * 28 + i]; // Inputs array, box colour
           p.fill(filler);
-          p.translate(-p.width / 2, -p.height / 2);
+          p.translate(-p.width / 2, -p.height / 2,0);
           p.translate(i * (boxSize * 2), j * (boxSize * 2), 0);
           p.box(boxSize * 1.5);
           p.pop();
@@ -82,7 +89,8 @@
             p.stroke(255, 255, 0); // Line between activations and inputs grid, line colour
             p.strokeWeight(3.5); // Line between activations and inputs grid, line thickness
             let position = p.random(middlePositions).copy();
-            position.add(0, 0, -gridSpacing);
+            position.add(0, 0, -InputGridToMiddleSpacing);
+            position.add(-4*boxSize*2,-8*boxSize*2,0)
             p.line(
               -p.width / 2 + i * (boxSize * 2),
               -p.height / 2 + j * (boxSize * 2),
@@ -95,18 +103,16 @@
           }
         }
       }
-      p.translate(0, 0, gridSpacing);
+      p.translate(0, 0, InputGridToMiddleSpacing);
       for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 16; j++) {
           p.push();
           p.stroke(0); // Activations grid, line colour
           p.fill(255, 0, 0, 255 * activations[j * 8 + i]); // Activations grid, box colour
-          let position = p.createVector(
-            -7.5 * boxSize + i * (boxSize * 2),
-            -15.5 * boxSize + j * (boxSize * 2),
-            0
-          );
+          let position = p.createVector(i*2*boxSize,j*boxSize*2,0)
+          p.translate(-p.width/2,-p.height/2,0)
           p.translate(position.x, position.y, position.z);
+          p.translate(10*boxSize*2,6*boxSize*2,0);
           p.box(boxSize * 1.8);
           p.pop();
 
@@ -115,15 +121,18 @@
           }
         }
       }
-      p.translate(0, 0, 100);
+      p.translate(0, 0, MiddlegridToOutputSpacing);
       for (let i = 0; i < 5; i++) {
         for (let j = 0; j < 2; j++) {
           p.push();
           p.stroke(0); // Outputs grid, line colour
           p.fill(0, 255, 0, 255 * outputs[j * 5 + i]); // Outputs grid, box colour
-          p.translate(-4.5 * boxSize, -1.5 * boxSize, 0);
+          p.translate(-p.width/2,-p.height/2,0)
+          //p.translate(-4*boxSize*2,-8*boxSize*2,0);
           p.translate(i * (boxSize * 2), j * (boxSize * 2), 0);
+          p.translate(11.5*boxSize*2,13*boxSize*2,0);
           p.box(boxSize * 1.8);
+
           p.pop();
         }
       }
@@ -136,6 +145,10 @@
     }}
     windowResized={(p) => {
       p.resizeCanvas(container.clientWidth, container.clientHeight);
+      boxSize = p.width/55;
+      Zindex = -boxSize*25;
+      InputGridToMiddleSpacing = boxSize*10;
+      MiddlegridToOutputSpacing = boxSize*5;
     }}
   />
 </div>
