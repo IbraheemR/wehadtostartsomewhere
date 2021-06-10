@@ -1,5 +1,5 @@
 import { readable, writable } from "svelte/store";
-import { loadLayersModel, tensor } from "@tensorflow/tfjs";
+import { loadLayersModel, model, softmax, tensor } from "@tensorflow/tfjs";
 
 let setInput, setOutput, setHiddenActivation;
 
@@ -27,13 +27,21 @@ function randomArray(n) {
 }
 
 (async () => {
-  //let model = await loadLayersModel("/model/model.json")
-  let model = await loadLayersModel("/model/model.json")
+
+  let mnist_model = await loadLayersModel("/model/model.json");
+  let hidden_model = model({inputs: mnist_model.inputs, outputs: mnist_model.getLayer("", 2).getOutputAt(0)});
 
   inputs.subscribe(async data => {
-    let result = model.predict(tensor(data).reshape([1,28,28]))
-    setOutput(await result.data())   
-  })
+    const shorthand = tensor(data).reshape([1,28,28]);
+    
+    let result = mnist_model.predict(shorthand);
+    result = softmax(result);
+    setOutput(await result.data());
 
-  })()
+    let hidden_layer = hidden_model.predict(shorthand);
+    setHiddenActivation(await hidden_layer.data());
+
+  });
+
+  })();
 
