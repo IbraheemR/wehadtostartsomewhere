@@ -7,8 +7,8 @@ import css from "rollup-plugin-css-only";
 
 const production = !process.env.ROLLUP_WATCH;
 
-let startWithDev = ["run", "start", "--", "--dev"];
-startWithDev.push(process.env.SIRVHOST === "true" ? "--host" : undefined);
+let npmParams = ["run", "start", "--", "--dev"];
+npmParams.push(process.env.SIRVHOST === "true" ? "--host" : undefined);
 
 function serve() {
   let server;
@@ -20,7 +20,7 @@ function serve() {
   return {
     writeBundle() {
       if (server) return;
-      server = require("child_process").spawn("npm", startWithDev, {
+      server = require("child_process").spawn("npm", npmParams, {
         stdio: ["ignore", "inherit", "inherit"],
         shell: true,
       });
