@@ -92,7 +92,7 @@
           p.box(boxSize * 1.5);
           p.pop();
 
-          if (middlePositions.length == 128 && randomChooser[j + i*28] < 0.04) {
+          if (middlePositions.length == 128 && randomChooser[j + i*28] < 0.04) {// CHANGE 0.04 TO HIGHER FOR MORE LINES AND LOEWR FOR LESS LINES
             p.push();
             p.stroke(255, 255, 0); // Line between activations and inputs grid, line colour
             p.strokeWeight(3.5); // Line between activations and inputs grid, line thickness
@@ -129,7 +129,7 @@
 
             middlePositions.push(position.copy());
           }
-          if(finalPositions.length == 10 && randomChooser2[i*16 + j] < 0.05){
+          if(finalPositions.length == 10 && randomChooser2[i*16 + j] < 0.05){ // CHANGE 0.05 TO HIGHER FOR MORE LINES AND LOEWR FOR LESS LINES
             p.push();
 
             p.stroke(0,0, 255); // Line between middle and outputs grid, line colour
