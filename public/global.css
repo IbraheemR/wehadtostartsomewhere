@@ -73,19 +73,20 @@ button:focus {
   border-color: #666;
 }
 
-#clear {
+.clear {
   background-color: #2b44cb;
   outline-color: #2b44cb;
   color: #ffffff;
   border: none;
 }
 
-#about {
+.about {
   background-color: rgb(25,24,30);
-  outline-color: #2b44cb;
+  border: 2px solid #2b44cb;
+  border-color: #2b44cb;
   color: #ffffff;
-  border: none;
 }
+
 h1,
 h2,
 h3,

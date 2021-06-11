@@ -3,17 +3,25 @@
   import VisualisationCanvas from "./components/VisualisationCanvas.svelte";
   import TextInfo from "./components/TextInfo.svelte";
   import Probabilities from "./components/Probabilities.svelte";
+  import About from "./components/About.svelte";
 
   let clearCanvas;
+  let showAbout = false;
+  const switchAbout = () => showAbout = !showAbout;
 </script>
 
 <main>
+  {#if showAbout}
+  <div class="abtarea">
+    <About {switchAbout} />
+  </div>
+  {/if}
   <div class="visarea">
     <VisualisationCanvas />
   </div>
 
   <div class="infoarea">
-    <TextInfo {clearCanvas} />
+    <TextInfo {clearCanvas} {switchAbout}/>
   </div>
 
   <div class="probsarea">
@@ -66,6 +74,14 @@
   .inputarea {
     grid-area: input;
     padding: 1rem;
+  }
+
+  .abtarea {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    bottom: 0;
+    right: 0;
   }
 
   main > div {

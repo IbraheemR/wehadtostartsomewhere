@@ -5,6 +5,7 @@
   let { outputs } = model;
 
   export let clearCanvas;
+  export let switchAbout
 
   let prediction, confidence;
 
@@ -35,7 +36,8 @@
     Confidence: <strong>{(confidence * 100).toFixed(1)}%</strong>
   </div>
 
-  <Button onclick={clearCanvas}>Clear</Button>
+  <Button buttonClass="about" onclick={switchAbout}>About</Button>
+  <Button buttonClass="clear" onclick={clearCanvas}>Clear</Button>   
 </div>
 
 <style>
