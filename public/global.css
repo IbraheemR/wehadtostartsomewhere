@@ -2,6 +2,8 @@
   --theme-bg: rgb(25, 24, 30);
   --theme-text: white;
   --theme-high: #2b44cb;
+
+  font-size: calc(1vmin + 5px);
 }
 
 html,
