@@ -92,7 +92,7 @@
           p.box(boxSize * 1.5);
           p.pop();
 
-          if (middlePositions.length == 128 && randomChooser[j + i*28] < 0.04) {// CHANGE 0.04 TO HIGHER FOR MORE LINES AND LOEWR FOR LESS LINES
+          if (middlePositions.length == 128 && randomChooser[j + i*28] < 0.3 && filler == 255) {// CHANGE 0.04 TO HIGHER FOR MORE LINES AND LOEWR FOR LESS LINES
             p.push();
             p.stroke(255, 255, 0); // Line between activations and inputs grid, line colour
             p.strokeWeight(3.5); // Line between activations and inputs grid, line thickness
