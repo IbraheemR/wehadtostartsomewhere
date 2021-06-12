@@ -70,13 +70,9 @@
       }
     }}
     draw={(p) => {
-<<<<<<< HEAD
       p.background(0); // Background colour declaration
       p.strokeWeight(2);
 
-=======
-      p.background(30,30,35); // Background colour declaration
->>>>>>> fe698626cfde5c994585f5296ec8421456629e9f
       p.translate(0, 0, Zindex);
 
       if (p.mouseIsPressed && mouseOnScreen(p)) {
@@ -155,7 +151,6 @@
             // CHANGE 0.05 TO HIGHER FOR MORE LINES AND LOEWR FOR LESS LINES
             p.push();
 
-<<<<<<< HEAD
             p.stroke(100); // Line between middle and outputs grid, line colour
             let position2 =
               finalPositions[Math.floor(p.map(i * j, 0, 8 * 16, 0, 10))].copy();
@@ -168,13 +163,6 @@
               position2.y,
               position2.z
             );
-=======
-            p.stroke("#20aafa"); // Line between middle and outputs grid, line colour
-            p.strokeWeight(5); // Line between middle and outputs grid, line thickness
-            let position2 = finalPositions[Math.floor(p.map(i*j,0,8*16,0,10))].copy()
-            position2.add(0, 0, MiddlegridToOutputSpacing);
-            p.line(position3.x -p.width/2 + 10*boxSize*2,position3.y -p.height/2 + 6*boxSize*2,0,position2.x,position2.y,position2.z);
->>>>>>> fe698626cfde5c994585f5296ec8421456629e9f
 
             p.pop();
           }
