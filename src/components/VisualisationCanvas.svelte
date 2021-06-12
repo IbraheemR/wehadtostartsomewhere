@@ -31,6 +31,9 @@
 
   var InputGridToMiddleSpacing;
   var MiddlegridToOutputSpacing;
+  let modelShift;
+
+  $: modelShift = InputGridToMiddleSpacing * 0.6 ?? 0;
 
   const gridSpacing = 400;
 
@@ -89,7 +92,7 @@
           p.stroke(0); // Inputs grid, line colour
           let filler = 255 - 255 * inputs[j * 28 + i]; // Inputs array, box colour
           p.fill(filler);
-          p.translate(-p.width / 2, -p.height / 2, -InputGridToMiddleSpacing);
+          p.translate(-p.width / 2, -p.height / 2, -modelShift);
           p.translate(i * (boxSize * 2), j * (boxSize * 2), 0);
           p.box(boxSize * 1.5);
           p.pop();
@@ -105,10 +108,11 @@
               middlePositions[
                 Math.floor(p.map(i * j, 0, 28 * 28, 0, 128))
               ].copy();
+            position.add(0, 0, InputGridToMiddleSpacing - modelShift);
             p.line(
               -p.width / 2 + i * (boxSize * 2),
               -p.height / 2 + j * (boxSize * 2),
-              -InputGridToMiddleSpacing,
+              -modelShift,
               position.x,
               position.y,
               position.z
@@ -131,7 +135,7 @@
           );
           p.fill(acctivationColor); // Activations grid, box colour
           let position = p.createVector(i * 2 * boxSize, j * boxSize * 2, 0);
-          p.translate(-p.width / 2, -p.height / 2, -InputGridToMiddleSpacing);
+          p.translate(-p.width / 2, -p.height / 2, -modelShift);
           p.translate(position.x, position.y, position.z);
           p.translate(10 * boxSize * 2, 6 * boxSize * 2, 0);
           p.box(boxSize * 1.8);
@@ -150,15 +154,11 @@
             p.stroke(100); // Line between middle and outputs grid, line colour
             let position2 =
               finalPositions[Math.floor(p.map(i * j, 0, 8 * 16, 0, 10))].copy();
-            position2.add(
-              0,
-              0,
-              MiddlegridToOutputSpacing - InputGridToMiddleSpacing
-            );
+            position2.add(0, 0, MiddlegridToOutputSpacing - modelShift);
             p.line(
               position3.x - p.width / 2 + 10 * boxSize * 2,
               position3.y - p.height / 2 + 6 * boxSize * 2,
-              -InputGridToMiddleSpacing,
+              -modelShift,
               position2.x,
               position2.y,
               position2.z
@@ -183,7 +183,7 @@
           p.fill(acctivationColor); // Outputs grid, box colour
           var position2 = p.createVector(i * boxSize * 2, j * boxSize * 2, 0);
           p.translate(position2.x, position2.y, position2.z);
-          p.translate(-p.width / 2, -p.height / 2, -InputGridToMiddleSpacing);
+          p.translate(-p.width / 2, -p.height / 2, -modelShift);
           p.translate(11.5 * boxSize * 2, 13 * boxSize * 2, 0);
           p.box(boxSize * 1.8);
 
