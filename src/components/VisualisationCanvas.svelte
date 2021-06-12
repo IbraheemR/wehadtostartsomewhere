@@ -54,7 +54,7 @@
     setup={(p) => {
       p.createCanvas(container.clientWidth, container.clientHeight, p.WEBGL);
       p.angleMode(p.DEGREES);
-      boxSize = 17;
+      boxSize = p.width / 55;
       Zindex = -boxSize * 40;
       InputGridToMiddleSpacing = boxSize * 25;
       MiddlegridToOutputSpacing = boxSize * 15;
