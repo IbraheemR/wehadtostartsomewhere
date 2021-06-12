@@ -6,7 +6,7 @@
 
   export const clearCanvas = () => {
     if (pRef) {
-      pRef.background(0);
+      pRef.background(255);
       model.inputs.set(new Array(784).fill(0));
     }
   };
@@ -26,44 +26,35 @@
   let pixelShades = [];
   let smallCanvas;
   let container;
-
-  let canvasSize;
 </script>
 
 <div bind:this={container}>
   <P5Canvas
     setup={(p) => {
-      canvasSize = Math.min(container.clientWidth, container.clientHeight);
-      p.createCanvas(canvasSize, canvasSize); // Resize canvas here @HAM
+      p.createCanvas(200, 200); // Resize canvas here @HAM
       smallCanvas = p.createGraphics(28, 28);
       p.pixelDensity(1);
       smallCanvas.pixelDensity(1);
-      p.background(0); // Background colour @HAM
+      p.background(255); // Background colour @HAM
       pRef = p;
-
     }}
     draw={(p) => {
       if (p.mouseIsPressed && mouseOnScreen(p)) {
         smallCanvas.loadPixels();
         for (let i = 0; i < smallCanvas.pixels.length; i += 4) {
           let pixCol = smallCanvas.pixels[i + 1]; // Only sampling the green channel. Be warned about this if we change colors etc.
-          pixelShades.push(pixCol / 255);
+          pixelShades.push(1 - pixCol / 255);
         }
         smallCanvas.updatePixels();
 
         model.inputs.set(pixelShades);
         pixelShades = [];
 
-        p.stroke(255);
+        p.stroke(0);
         p.strokeWeight(p.height / 15);
         p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
         smallCanvas.image(p, 0, 0, 28, 28);
       }
-    }}
-    windowResized={(p) => {
-      canvasSize = Math.min(container.clientWidth, container.clientHeight);
-      p.resizeCanvas(canvasSize, canvasSize);
-      p.background(0);
     }}
   />
 </div>
@@ -77,5 +68,6 @@
 
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 </style>
