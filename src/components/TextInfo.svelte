@@ -5,6 +5,7 @@
   let { outputs } = model;
 
   export let clearCanvas;
+  export let switchAbout;
 
   let prediction, confidence;
 
@@ -14,10 +15,8 @@
   );
 </script>
 
+<h3 id="credit">(Ibraheem Rodrigues Et Al.)</h3>
 <h1>MNIST Explorer</h1>
-<h3 id="credit">
-  (Ibraheem Rodrigues <a>Et Al</a>.)
-</h3>
 
 <div id="controls">
   <div id="prediction">
@@ -35,13 +34,15 @@
     Confidence: <strong>{(confidence * 100).toFixed(1)}%</strong>
   </div>
 
-  <Button onclick={clearCanvas}>Clear</Button>
+  <Button onclick={switchAbout}>About</Button>
+  <Button onclick={clearCanvas} primaryStyle>Clear</Button>
 </div>
 
 <style>
   #controls {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   #prediction {

@@ -1,6 +1,11 @@
-canvas {
-  touch-action: none;
+:root {
+  --theme-bg: rgb(25, 24, 30);
+  --theme-text: white;
+  --theme-high: #2b44cb;
+
+  font-size: calc(1vmin + 5px);
 }
+
 html,
 body {
   position: relative;
@@ -11,8 +16,8 @@ body {
 }
 
 body {
-  color: #ffffff;
-  background-color: rgb(25,24,30);
+  color: var(--theme-text);
+  background-color: var(--theme-bg);
   margin: 0;
   padding: 0px;
   box-sizing: border-box;
@@ -21,7 +26,7 @@ body {
 }
 
 a {
-  color: rgb(0, 100, 200);
+  color: var(--theme-high);
   text-decoration: none;
 }
 
@@ -30,62 +35,9 @@ a:hover {
 }
 
 a:visited {
-  color: rgb(0, 80, 160);
+  color: var(--theme-high);
 }
 
-label {
-  display: block;
-}
-
-input,
-button,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  -webkit-padding: 0.4em 0;
-  padding: 0.4em;
-  margin: 0 0 0.5em 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-}
-
-input:disabled {
-  color: #ccc;
-}
-
-button {
-  color: #333;
-  background-color: #f4f4f4;
-  outline: none;
-}
-
-button:disabled {
-  color: #999;
-}
-
-button:not(:disabled):active {
-  background-color: #ddd;
-}
-
-button:focus {
-  border-color: #666;
-}
-
-#clear {
-  background-color: #2b44cb;
-  outline-color: #2b44cb;
-  color: #ffffff;
-  border: none;
-}
-
-#about {
-  background-color: rgb(25,24,30);
-  outline-color: #2b44cb;
-  color: #ffffff;
-  border: none;
-}
 h1,
 h2,
 h3,
@@ -94,4 +46,8 @@ h5,
 h6 {
   font-weight: normal;
   margin: 0.5rem;
+}
+
+canvas {
+  touch-action: none;
 }

@@ -2,13 +2,9 @@
   import P5Canvas from "../p5/P5Canvas.svelte";
   import model from "../model/model.js";
 
-  let pRef;
-
-  export const clearCanvas = () => {
-    if (pRef) {
-      pRef.background(0);
-      model.inputs.set(new Array(784).fill(0));
-    }
+  export const clearCanvas = (p2) => {
+    hiddenCanvas.background(0);
+    model.inputs.set(new Array(784).fill(0));
   };
 
   function mouseOnScreen(p) {
@@ -23,47 +19,51 @@
     return false;
   }
 
-  let pixelShades = [];
-  let smallCanvas;
+  let pixelShades = Array(28 * 28).fill(0);
+  let outputCanvas, hiddenCanvas;
   let container;
-
-  let canvasSize;
 </script>
 
+<h2>Draw a digit:</h2>
 <div bind:this={container}>
   <P5Canvas
     setup={(p) => {
-      canvasSize = Math.min(container.clientWidth, container.clientHeight);
-      p.createCanvas(canvasSize, canvasSize); // Resize canvas here @HAM
-      smallCanvas = p.createGraphics(28, 28);
-      p.pixelDensity(1);
-      smallCanvas.pixelDensity(1);
-      p.background(0); // Background colour @HAM
-      pRef = p;
+      p.createCanvas(200, 200); // Resize canvas here @HAM
+      hiddenCanvas = p.createGraphics(200, 200);
+      outputCanvas = p.createGraphics(28, 28);
+      outputCanvas.pixelDensity(1);
 
+      clearCanvas();
     }}
     draw={(p) => {
       if (p.mouseIsPressed && mouseOnScreen(p)) {
-        smallCanvas.loadPixels();
-        for (let i = 0; i < smallCanvas.pixels.length; i += 4) {
-          let pixCol = smallCanvas.pixels[i + 1]; // Only sampling the green channel. Be warned about this if we change colors etc.
-          pixelShades.push(pixCol / 255);
+        // Draw on hidden canvas
+        hiddenCanvas.stroke(255);
+        hiddenCanvas.strokeWeight(p.height / 15);
+        hiddenCanvas.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
+
+        // Downscale to output size & grab values from array
+        outputCanvas.image(hiddenCanvas, 0, 0, 28, 28);
+        outputCanvas.loadPixels();
+        for (let i = 0; i < pixelShades.length; i++) {
+          let pixCol = outputCanvas.pixels[i * 4];
+          pixelShades[i] = pixCol / 255;
         }
-        smallCanvas.updatePixels();
+        outputCanvas.updatePixels();
 
         model.inputs.set(pixelShades);
-        pixelShades = [];
-
-        p.stroke(255);
-        p.strokeWeight(p.height / 15);
-        p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
-        smallCanvas.image(p, 0, 0, 28, 28);
       }
-    }}
-    windowResized={(p) => {
-      canvasSize = Math.min(container.clientWidth, container.clientHeight);
-      p.resizeCanvas(canvasSize, canvasSize);
-      p.background(0);
+
+      // Draw user graphics on shown canvas
+
+      p.image(hiddenCanvas, 0, 0);
+
+      p.noFill();
+      p.stroke(50);
+      p.strokeWeight(2);
+      p.rect(p.width * 0.2, p.height * 0.1, p.width * 0.6, p.height * 0.8);
+
+      p.filter(p.INVERT);
     }}
   />
 </div>
@@ -77,5 +77,10 @@
 
     display: flex;
     justify-content: center;
+    align-items: center;
+  }
+
+  h2 {
+    font-weight: bold;
   }
 </style>
