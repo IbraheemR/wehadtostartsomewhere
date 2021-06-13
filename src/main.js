@@ -1,12 +1,7 @@
-import App from './App.svelte';
-
-import model from "./model/model"
+import App from "./App.svelte";
 
 const app = new App({
-	target: document.body,
-	props: {
-		model
-	}
+  target: document.body,
 });
 
 export default app;
