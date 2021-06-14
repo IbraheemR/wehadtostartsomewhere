@@ -32,16 +32,26 @@
     </p>
     <h3>Technologies Used</h3>
     <p>SvelteJS, p5.js, TensorFlow/Keras, tf.js, deployed on Netlify</p>
+    <p>
+      <a
+        target="_blank"
+        href="https://github.com/ibraheemr/wehadtostartsomewhere">Source Code</a
+      >
+    </p>
     <h3>Credits</h3>
     <ul>
       <li>
         <strong
-          ><a href="http://ibraheemrodrigues.com">Ibraheem Rodrigues</a></strong
+          ><a target="_blank" href="http://ibraheemrodrigues.com"
+            >Ibraheem Rodrigues</a
+          ></strong
         > - Project Lead & Orchestration
       </li>
       <li>
         <strong
-          ><a href="https://www.linkedin.com/in/aryenne-marie-oliveros/"
+          ><a
+            target="_blank"
+            href="https://www.linkedin.com/in/aryenne-marie-oliveros/"
             >Aryenne Oliveros</a
           ></strong
         > - AI training & deployment
@@ -49,14 +59,17 @@
       <li>
         <strong
           ><a
+            target="_blank"
             href="https://www.linkedin.com/in/mihai-bogdan-cuciureanu-2b0a2120a"
             >Bogdan Cuciureanu</a
           ></strong
         > - Interactive & visual graphics
       </li>
       <li>
-        <strong><a href="https://github.com/ham-q">Hamzah Qureshi</a></strong> -
-        UI and Aesthetics/Theming
+        <strong
+          ><a target="_blank" href="https://github.com/ham-q">Hamzah Qureshi</a
+          ></strong
+        > - UI and Aesthetics/Theming
       </li>
     </ul>
   </section>
