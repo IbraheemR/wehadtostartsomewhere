@@ -14,8 +14,6 @@
     [0, 0]
   );
 </script>
-
-<h3 id="credit">(Ibraheem Rodrigues Et Al.)</h3>
 <h1>MNIST Explorer</h1>
 
 <div id="controls">
@@ -48,9 +46,5 @@
   #prediction {
     display: inline;
     font-size: 1.5rem;
-  }
-
-  #credit {
-    text-align: right;
   }
 </style>
